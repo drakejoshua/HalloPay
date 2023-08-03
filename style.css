@@ -97,7 +97,10 @@ nav > div#dropdown-ctn > div > a:nth-child(2) {
 
 
 
-
+main {
+    position: relative;
+    top: 0;
+}
 main > form {
     margin-block-start: 40px;
     max-width: 400px;
@@ -155,6 +158,7 @@ main > form > input[type="submit"] {
     border: none;
     border-radius: 10px;
     margin-block-end: 40px;
+    transition: all 0.2s;
 }
 main > form > span {
     text-transform: capitalize;
@@ -173,4 +177,52 @@ main > span > a::before {
     content: "|";
     padding-inline-end: 10px;
     padding-inline-start: 10px;
+}
+
+
+/* 
+    adding micro-interactions such as: hover and focus on the inputs and the submit button
+*/
+main > form > input[type="submit"]:hover, nav > div#dropdown-ctn > a:hover, 
+main > form > input[type="submit"]:focus-visible, nav > div#dropdown-ctn > a:focus-visible {
+    background-color: #fc9e2c;
+    outline: none;
+}
+main > form > div > input:focus, main > form > div > input:focus-visible {
+    border-inline: 2px solid rgb(172, 172, 172);
+    border-block: 2px solid rgb(172, 172, 172);
+    outline: none;
+}
+
+
+/* adding the decorational backgrounds */
+div.decor {
+    width: 280px;
+    height: 280px;
+    background-color: black;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    clip-path: polygon(1% 63%, 9% 57%, 22% 53%, 33% 28%, 46% 31%, 61% 21%, 74% 16%, 63% 24%, 47% 34%, 35% 31%, 24% 56%, 11% 61%);
+    z-index: -1;
+}
+div.decor:nth-child(2) {
+    top: 65%;
+    left: 15%;
+}
+div.decor:nth-child(3) {
+    top: 65%;
+    left: 35%;
+}
+div.decor:nth-child(4) {
+    top: 5%;
+    left: 75%;
+}
+div.decor:nth-child(5) {
+    top: 75%;
+    left: 80%;
+}
+div.decor:nth-child(6) {
+    top: 0%;
+    left: 55%;
 }
