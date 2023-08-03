@@ -1,0 +1,176 @@
+/* default styles for the layout and styling */
+* {
+    --primary-brown: #f6f2eb;
+    --secondary-white: #fff;
+    --secondary-black: #000;
+    --accent-brown: #fec887;
+    --font-size-small: 1rem;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-black);
+}
+a {
+    text-decoration: none;
+}
+body {
+    margin: 0px;
+}
+
+
+/* styling the layout */
+body {
+    background-color: var(--primary-brown);
+}
+
+
+/* styling the nav bar */
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-inline: 100px;
+    padding-block: 30px 0px;
+    align-items: flex-start;
+}
+
+nav > div#logo-ctn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 15%;
+    gap: 10px;
+}
+nav > div#logo-ctn > a#sales-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-block-start: 5px;
+    border-block-start: 1px solid var(--secondary-black);
+}
+nav > div#logo-ctn > a#sales-link > span:nth-child(2) {
+    font-size: 18px;
+}
+nav > div#logo-ctn > a#logo {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+
+nav > div#dropdown-ctn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: center;
+}
+nav > div#dropdown-ctn > span {
+    display: none;
+}
+nav > div#dropdown-ctn > a {
+    order: 2;
+    padding-inline: 20px;
+    padding-block: 10px;
+    background-color: var(--accent-brown);
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+nav > div#dropdown-ctn > div {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: center;
+}
+nav > div#dropdown-ctn > div > a:nth-child(1) {
+    text-transform: capitalize;
+    order: 2;
+}
+nav > div#dropdown-ctn > div > a:nth-child(2) {
+    order: 1;
+    font-size: 1.2rem;
+}
+
+
+
+
+main > form {
+    margin-block-start: 40px;
+    max-width: 400px;
+    margin-inline: auto;
+    background-color: var(--secondary-white);
+    padding-inline: 30px;
+    padding-block: 40px;
+    border-radius: 20px;
+}
+main > form > * {
+    display: block;
+}
+main > form > div#heading {
+    margin-block-end: 30px;
+}
+main > form > div#inputs {
+    margin-block-end: 30px;
+}
+main > form > div > h1, main > form > div > p {
+    text-align: center;
+    text-transform: capitalize;
+    margin-inline: auto;
+}
+main > form > div > h1 {
+    font-size: 2rem;
+    margin-block-start: 0px;
+}
+main > form > div > p {
+    margin-block-end: 0px;
+    line-height: 1.4;
+    width: 80%;
+}
+main > form > div > input {
+    display: block;
+    width: 95%;
+    padding-inline: 15px;
+    padding-block: 10px;
+    font-size: 1rem;
+    margin-block-start: 10px;
+    margin-inline: auto;
+    border-radius: 10px;
+    border-inline: 2px solid rgb(235, 235, 235);
+    border-block: 2px solid rgb(238, 238, 238);
+}
+main > form > a {
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-block-end: 20px;
+}
+main > form > input[type="submit"] {
+    width: 100%;
+    padding-block: 10px;
+    text-transform: capitalize;
+    background-color: var(--accent-brown);
+    border: none;
+    border-radius: 10px;
+    margin-block-end: 40px;
+}
+main > form > span {
+    text-transform: capitalize;
+    text-align: center;
+}
+main > form > span > a {
+    font-weight: 600;
+}
+main > span {
+    display: block;
+    text-align: center;
+    margin-block-start: 40px;
+    text-transform: capitalize;
+}
+main > span > a::before {
+    content: "|";
+    padding-inline-end: 10px;
+    padding-inline-start: 10px;
+}
