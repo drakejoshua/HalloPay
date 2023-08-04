@@ -60,25 +60,29 @@ nav > div#logo-ctn > a#logo {
 }
 
 
-nav > div#dropdown-ctn {
+nav > div#mobile-menu {
+    display: none;
+}
+nav > div#desktop-menu {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 20px;
     align-items: center;
 }
-nav > div#dropdown-ctn > span {
+nav > div#desktop-menu > span {
     display: none;
 }
-nav > div#dropdown-ctn > a {
+nav > div#desktop-menu > a {
     order: 2;
     padding-inline: 1.25rem;
     padding-block: 0.625rem;
     background-color: var(--accent-brown);
     border-radius: 10px;
     text-transform: capitalize;
+    outline: none;
 }
-nav > div#dropdown-ctn > div {
+nav > div#desktop-menu > div {
     order: 1;
     display: flex;
     flex-direction: row;
@@ -86,11 +90,11 @@ nav > div#dropdown-ctn > div {
     gap: 20px;
     align-items: center;
 }
-nav > div#dropdown-ctn > div > a:nth-child(1) {
+nav > div#desktop-menu > div > a:nth-child(1) {
     text-transform: capitalize;
     order: 2;
 }
-nav > div#dropdown-ctn > div > a:nth-child(2) {
+nav > div#desktop-menu > div > a:nth-child(2) {
     order: 1;
     font-size: 1.2rem;
 }
@@ -158,6 +162,7 @@ main > form > input[type="submit"] {
     border: none;
     border-radius: 10px;
     margin-block-end: 2.5rem;
+    outline: none;
     transition: all 0.2s;
 }
 main > form > span {
@@ -167,10 +172,14 @@ main > form > span {
 main > form > span > a {
     font-weight: 600;
 }
+
+
+/* styling the copyright info at the bottom of the form */
 main > span {
     display: block;
     text-align: center;
     margin-block-start: 2.5rem;
+    margin-block-end: 2.5rem;
     text-transform: capitalize;
 }
 main > span > a::before {
@@ -183,10 +192,9 @@ main > span > a::before {
 /* 
     adding micro-interactions such as: hover and focus on the inputs and the submit button
 */
-main > form > input[type="submit"]:hover, nav > div#dropdown-ctn > a:hover, 
-main > form > input[type="submit"]:focus-visible, nav > div#dropdown-ctn > a:focus-visible {
+main > form > input[type="submit"]:hover, nav > div#desktop-menu > a:hover, 
+main > form > input[type="submit"]:focus-visible, nav > div#desktop-menu > a:focus-visible {
     background-color: #fc9e2c;
-    outline: none;
 }
 main > form > div > input:focus, main > form > div > input:focus-visible {
     border-inline: 2px solid rgb(172, 172, 172);
@@ -225,4 +233,218 @@ div.decor:nth-child(5) {
 div.decor:nth-child(6) {
     top: 0%;
     left: 55%;
+}
+
+
+
+/* adding responsiveness using some breakpoints */
+
+/* for large tablets */
+@media screen and ( max-width: 50rem ) {
+    /* hiding the background decorations */
+    div.decor {
+        display: none;
+    }
+
+
+    /* restyling the nav and it's logo in order to flow with mobile design */
+    nav {
+        align-items: center;
+    }
+    nav > div#logo-ctn {
+        display: inline-block;
+        inline-size: max-content;
+    }
+    nav > div#logo-ctn > a#sales-link {
+        display: none;
+    }
+    nav > div#logo-ctn > a#logo {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+}
+
+
+/* for small tablets and max phones */
+@media screen and ( max-width: 37.5rem ) {
+    /* restyling the nav and it's logo in order to flow with mobile design */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding-inline: 0.9375rem;
+        padding-block: 1.875rem 0rem;
+        align-items: center;
+    }
+    nav > div#logo-ctn {
+        display: inline-block;
+        inline-size: max-content;
+    }
+    nav > div#logo-ctn > a#sales-link {
+        display: none;
+    }
+    nav > div#logo-ctn > a#logo {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    /* styling the mobile menu( dropdown ) */
+    nav > div#mobile-menu {
+        inline-size: 100%;
+        display: block;
+    }
+    nav > div#mobile-menu > div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        border-block-start: 1px solid var(--secondary-black);
+        margin-block-start: 1rem;
+        overflow: hidden;
+        block-size: 0px;
+        transition: block-size 0.5s;
+    }
+    nav > div#mobile-menu > div > * {
+        margin-block-start: 1rem;
+    }
+    nav > div#mobile-menu > div > *:nth-child(1) {
+        font-size: 1.0625rem;
+        text-transform: capitalize;
+    }
+    nav > div#mobile-menu > div > *:nth-child(2) > span {
+        font-size: 1.3rem;
+    }
+
+    /* re-styling the desktop-menu in order to just show the  */
+    nav > div#desktop-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        align-items: center;
+    }
+    nav > div#desktop-menu > span {
+        display: initial;
+        font-size: 2rem;
+        order: 2;
+    }
+    nav > div#desktop-menu > a {
+        order: 1;
+        padding-inline: 1.25rem;
+        padding-block: 0.625rem;
+        background-color: var(--accent-brown);
+        border-radius: 10px;
+        text-transform: capitalize;
+    }
+    nav > div#desktop-menu > div {
+        display: none;
+    }
+
+
+
+    /* re-sizing the form in order to fit well with screen width */
+    main > form {
+        max-width: 60%;
+        padding-inline: 0.9375rem;
+    }
+}
+
+/* for mobile phones */
+@media screen and ( max-width: 31.25rem ) {
+    /* hiding the background decorations */
+    div.decor {
+        display: none;
+    }
+
+
+    /* restyling the nav and it's logo in order to flow with mobile design */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding-inline: 0.9375rem;
+        padding-block: 1.875rem 0rem;
+        align-items: center;
+    }
+    nav > div#logo-ctn {
+        display: inline-block;
+        inline-size: max-content;
+    }
+    nav > div#logo-ctn > a#sales-link {
+        display: none;
+    }
+    nav > div#logo-ctn > a#logo {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    /* styling the mobile menu( dropdown ) */
+    nav > div#mobile-menu {
+        inline-size: 100%;
+        display: block;
+    }
+    nav > div#mobile-menu > div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        border-block-start: 1px solid var(--secondary-black);
+        margin-block-start: 1rem;
+        overflow: hidden;
+        block-size: 0px;
+        transition: block-size 0.5s;
+    }
+    nav > div#mobile-menu > div > * {
+        margin-block-start: 1rem;
+    }
+    nav > div#mobile-menu > div > *:nth-child(1) {
+        font-size: 1.0625rem;
+        text-transform: capitalize;
+    }
+    nav > div#mobile-menu > div > *:nth-child(2) > span {
+        font-size: 1.3rem;
+    }
+
+    /* re-styling the desktop-menu in order to just show the  */
+    nav > div#desktop-menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        align-items: center;
+    }
+    nav > div#desktop-menu > span {
+        display: initial;
+        font-size: 2rem;
+        order: 2;
+    }
+    nav > div#desktop-menu > a {
+        order: 1;
+        padding-inline: 1.25rem;
+        padding-block: 0.625rem;
+        background-color: var(--accent-brown);
+        border-radius: 10px;
+        text-transform: capitalize;
+    }
+    nav > div#desktop-menu > div {
+        display: none;
+    }
+
+
+
+    /* re-sizing the form in order to fit well with screen width */
+    main > form {
+        max-width: 90%;
+        padding-inline: 0.9375rem;
+    }
+}
+
+/* for devices that don't have pointer mechanisms( e.g. mouse, touch, pen ) that can hover on elements */
+@media ( any-hover: none ) {
+    main > form > input[type="submit"], nav > div#desktop-menu > a {
+        transition: none;
+    }
+}
+
+/* for accessiblity, users that prefer reduced motion or no animations or devices that dont have fast screen rates */
+@media ( prefers-reduced-motion: reduce ) and ( update: slow ) or ( update: none ) {
+    nav > div#mobile-menu > div {
+        transition: none;
+    }
 }
